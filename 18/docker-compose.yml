@@ -1,0 +1,29 @@
+services:
+  superset:
+    image: apache/superset:latest
+    container_name: superset
+    depends_on:
+      - clickhouse
+    ports:
+      - "8088:8088"
+    environment:
+      - SUPERSET_LOAD_EXAMPLES=no
+      - SECRET_KEY=H8S9jDfEWQHN38wOYhIoKXoP4hk0AyniWRGsRmaup4yAmaQK4y1Or/dw
+    volumes:
+      - ./superset_config:/app/pythonpath
+    networks:
+      - superset_network
+      
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest  # Образ сервера ClickHouse
+    container_name: clickhouse
+    ports:
+      - "9000:9000"                      # Порт для нативного протокола ClickHouse
+      - "8123:8123"                      # Порт для HTTP интерфейса ClickHouse
+    networks:
+      - superset_network
+
+networks:
+  superset_network:
+    driver: bridge
+
