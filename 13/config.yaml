@@ -1,0 +1,21 @@
+clickhouse:
+  username: default
+  password: ""
+  host: localhost
+  port: 9000
+
+s3:
+  endpoint: http://localhost:9090
+  access_key: minioadmin
+  secret_key: minioadmin
+  bucket: clickhouse
+  path: backups
+  acl: private
+  compression_format: tar
+  compression_level: 1
+
+backup:
+  remote_storage: s3
+  storage_policy: backup_policy
+  rbac: false
+  configs: false

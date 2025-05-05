@@ -1,0 +1,22 @@
+<clickhouse>
+    <storage_configuration>
+        <disks>
+            <s3>
+                <type>s3</type>
+                <endpoint>http://minio:9090/clickhouse/</endpoint>
+                <access_key_id>minioadmin</access_key_id>
+                <secret_access_key>minioadmin</secret_access_key>
+                <use_environment_credentials>false</use_environment_credentials>
+            </s3>
+        </disks>
+        <policies>
+            <backup_policy>
+                <volumes>
+                    <main>
+                        <disk>s3</disk>
+                    </main>
+                </volumes>
+            </backup_policy>
+        </policies>
+    </storage_configuration>
+</clickhouse>
