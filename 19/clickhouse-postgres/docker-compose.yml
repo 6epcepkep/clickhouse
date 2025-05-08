@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: pg
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.3
+    container_name: ch
+    restart: always
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
