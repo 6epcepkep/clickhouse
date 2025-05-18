@@ -27,34 +27,34 @@
 ```bash
 ├── clickhouse-superset
 │   ├── load_data
-│   │   ├── convert_parquet_to_csv.py				 	# Скрипт конвертирующий файл с входными данными .parquet -> .csv
-│   │   ├── generate_drivers.py								# Генерация таблицы водителей (drivers)
-│   │   ├── generate_routes.py								# Генерация таблицы маршрутов (routes)
-│   │   ├── load_trips.py											# Загрузка исторических данных поездок в ClickHouse
-│   │   ├── stream_trips.py										# Имитация стриминга данных в ClickHouse (по 100 записей/сек)
-│   │   └── yellow_tripdata_2016-01.parquet		# Файл с входными данными
+│   │   ├── convert_parquet_to_csv.py		 # Скрипт конвертирующий файл с входными данными .parquet -> .csv
+│   │   ├── generate_drivers.py			 # Генерация таблицы водителей (drivers)
+│   │   ├── generate_routes.py			 # Генерация таблицы маршрутов (routes)
+│   │   ├── load_trips.py			 # Загрузка исторических данных поездок в ClickHouse
+│   │   ├── stream_trips.py			 # Имитация стриминга данных в ClickHouse (по 100 записей/сек)
+│   │   └── yellow_tripdata_2016-01.parquet	 # Файл с входными данными
 │   ├── superset_config
-│   │   └── superset_config.py								# Конфигурация Superset
-│   ├── init_clickhouse_taxi_project.sql 			# SQL-скрипт: создание таблиц, представлений, MV в ClickHouse
-│   └── requirements.txt											# Список зависимостей Python
+│   │   └── superset_config.py			 # Конфигурация Superset
+│   ├── init_clickhouse_taxi_project.sql 	 # SQL-скрипт: создание таблиц, представлений, MV в ClickHouse
+│   └── requirements.txt			 # Список зависимостей Python
 ├── config_dashboard
-│   ├── dashboard_export_heavy.zip						# Кофнигурация "тяжелого" дашборда
-│   └── dashboard_export_live.zip							# Кофнигурация "живого" дашборда
+│   ├── dashboard_export_heavy.zip		 # Кофнигурация "тяжелого" дашборда
+│   └── dashboard_export_live.zip		 # Кофнигурация "живого" дашборда
 ├── dbdiagram.io_shema
-│   ├── shema_db.dbml													# Модель структуры БД в формате DBML
-│   ├── shema_db.pdf													# Схема БД проекта в формате .pdf
-│   └── shema_db.svg													# Схема БД проекта в формате .svg
+│   ├── shema_db.dbml				 # Модель структуры БД в формате DBML
+│   ├── shema_db.pdf				 # Схема БД проекта в формате .pdf
+│   └── shema_db.svg				 # Схема БД проекта в формате .svg
 ├── img
-│   ├── heavy_dashboard.png										# Скриншот "тяжелого" дашборда
-│   ├── streaming_data.gif										# Анимационный скриншот потока данных
-│   ├── live_dashboard.png										# Скриншот "живого" дашборда
-│   └── streaming_update_dashboard.gif				# Анимационный скриншот "живого" дашборда
+│   ├── heavy_dashboard.png			 # Скриншот "тяжелого" дашборда
+│   ├── streaming_data.gif			 # Анимационный скриншот потока данных
+│   ├── live_dashboard.png			 # Скриншот "живого" дашборда
+│   └── streaming_update_dashboard.gif		 # Анимационный скриншот "живого" дашборда
 ├── services
-│   ├── clickhouse-server.service							# Конфигарация сервиса clickhouse-server в Ubuntu
-│   └── superset.service											# Конфигарация сервиса superset в Ubuntu
+│   ├── clickhouse-server.service		 # Конфигарация сервиса clickhouse-server в Ubuntu
+│   └── superset.service			 # Конфигарация сервиса superset в Ubuntu
 ├──verifycation_data
-│		└── check_clickhouse_objects.sql					# SQL-скрипт: минимальная проверка данных в БД
-└── README.md                                 # Документация или README
+│		└── check_clickhouse_objects.sql # SQL-скрипт: минимальная проверка данных в БД
+└── README.md                                 	 # Документация или README
 ```
 
 ---
