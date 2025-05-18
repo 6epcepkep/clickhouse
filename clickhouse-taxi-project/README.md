@@ -1,4 +1,4 @@
-# NYC Taxi Trips — ClickHouse Analytics Project
+# ClickHouse Analytics Project
 
 Обработка событий в реальном времени на базе ClickHouse - проектная работа по анализу поездок такси (основана на данных такси в Нью-Йорке за 2016 год) с использованием ClickHouse, материализованных представлений и Superset.
 
