@@ -1,0 +1,165 @@
+Project taxi_clickhouse_project {
+  database_type: "ClickHouse"
+  note: "Схема проекта без повторов, валидная для dbdiagram.io"
+}
+
+Table routes {
+  route_id UInt32
+  route_name String
+  to_id UInt32
+  Note: 'ENGINE = MergeTree'
+}
+
+Table drivers {
+  driver_id UInt32
+  driver_name String
+  company String
+  Note: 'ENGINE = MergeTree'
+}
+
+Table vendors {
+  vendor_id UInt8
+  vendor String
+  Note: 'ENGINE = TinyLog'
+}
+
+Table payment_types {
+  payment_type UInt8
+  payment_method String
+  Note: 'ENGINE = TinyLog'
+}
+
+Table trips_raw {
+  event_time DateTime
+  route_id UInt32
+  route_name String
+  driver_id UInt32
+  driver_name String
+  company String
+  fare_amount Float32
+  payment_type UInt8
+  payment_method String
+  vendor_id UInt8
+  vendor String
+  trip_distance Float32
+  trip_duration UInt32
+  tip_amount Float32
+  total_amount Float32
+  Note: 'ENGINE = MergeTree'
+}
+
+Table trip_duration_distribution_data {
+  trip_duration Float32
+  Note: 'ENGINE = MergeTree'
+}
+
+Table trips_by_hour {
+  hour String
+  route_name String
+  driver_name String
+  trip_count String
+  total_revenue String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table trips_by_driver_name {
+  hour String
+  driver_name String
+  trip_count String
+  total_revenue String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table trips_by_payment_type {
+  hour String
+  payment_method String
+  trip_count String
+  total_revenue String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table revenue_by_vendor {
+  hour String
+  vendor String
+  trip_count String
+  total_revenue String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table trip_duration_distribution {
+  trip_duration String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table avg_fare_by_route {
+  route_name String
+  avg_fare String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table top_routes_last_week {
+  route_name String
+  trip_count String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table revenue_by_vendor_last_15m {
+  vendor String
+  event_time String
+  minute String
+  trip_count String
+  total_revenue String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table trips_by_payment_type_last_15m {
+  payment_method String
+  event_time String
+  minute String
+  trip_count String
+  total_revenue String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table avg_fare_by_route_last_15m {
+  route_name String
+  event_time String
+  minute String
+  avg_fare String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table trips_by_driver_last_15m {
+  driver_name String
+  event_time String
+  minute String
+  trip_count String
+  total_revenue String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Table trip_duration_distribution_last_15m {
+  event_time String
+  duration_bin String
+  trip_count String
+  Note: 'VIEW or MATERIALIZED VIEW'
+}
+
+Ref: trips_raw.route_id > routes.route_id
+Ref: trips_raw.driver_id > drivers.driver_id
+Ref: trips_raw.vendor_id > vendors.vendor_id
+Ref: trips_raw.payment_type > payment_types.payment_type
+Ref: trips_by_hour.route_name > trips_raw.route_name
+Ref: trips_by_hour.driver_name > trips_raw.driver_name
+Ref: trips_by_driver_name.driver_name > trips_raw.driver_name
+Ref: trips_by_payment_type.payment_method > trips_raw.payment_method
+Ref: revenue_by_vendor.vendor > trips_raw.vendor
+Ref: trip_duration_distribution.trip_duration > trips_raw.trip_duration
+Ref: trip_duration_distribution_data.trip_duration > trips_raw.trip_duration
+Ref: avg_fare_by_route.route_name > trips_raw.route_name
+Ref: top_routes_last_week.route_name > trips_raw.route_name
+Ref: revenue_by_vendor_last_15m.vendor > trips_raw.vendor
+Ref: trips_by_payment_type_last_15m.payment_method > trips_raw.payment_method
+Ref: avg_fare_by_route_last_15m.route_name > trips_raw.route_name
+Ref: trips_by_driver_last_15m.driver_name > trips_raw.driver_name
+Ref: trip_duration_distribution_last_15m.duration_bin > trips_raw.trip_duration
