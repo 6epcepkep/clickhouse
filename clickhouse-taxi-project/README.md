@@ -24,7 +24,7 @@
 ---
 
 ## 📁 Структура проекта
-
+```bash
 ├── clickhouse-superset
 │   ├── load_data
 │   │   ├── convert_parquet_to_csv.py				 	# Скрипт конвертирующий файл с входными данными .parquet -> .csv
@@ -55,7 +55,7 @@
 ├──verifycation_data
 │		└── check_clickhouse_objects.sql					# SQL-скрипт: минимальная проверка данных в БД
 └── README.md                                 # Документация или README
-
+```
 
 ---
 
@@ -344,4 +344,4 @@ https://www.kaggle.com/datasets/elemento/nyc-yellow-taxi-trip-data?resource=down
 
 
 ## 📎 Автор
-Я :) — Fullstack-разработчик
+Я :)
