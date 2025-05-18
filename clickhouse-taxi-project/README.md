@@ -133,7 +133,7 @@ P.S. Возможно кому-то мои шаги, могут быть пол�
 	python3.10 -m venv superset-venv
 	source superset-venv/bin/activate
 ```
-	Установка зависимостей:
+Установка зависимостей:
 ```bash
 	pip install --upgrade pip setuptools wheel
 	pip install apache-superset
