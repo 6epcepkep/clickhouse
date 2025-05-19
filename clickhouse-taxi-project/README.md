@@ -246,7 +246,7 @@ https://www.kaggle.com/datasets/elemento/nyc-yellow-taxi-trip-data?resource=down
 	df.to_csv("yellow_tripdata_2016-01.csv", index=False)   # Сохранение в CSV
 	print("✅ Конвертация завершена.")
 ```
-В результате появится сконвериторованный файл yellow_tripdata_2016-01.csv в каталоге ~/clickhouse-superset/load_data.
+В результате появится сконвертированный файл yellow_tripdata_2016-01.csv в каталоге ~/clickhouse-superset/load_data.
 Запускаем скрипт generate_routes.py 
 
 
@@ -262,7 +262,8 @@ https://www.kaggle.com/datasets/elemento/nyc-yellow-taxi-trip-data?resource=down
 ```
 
 
-### 7. Запуск стриминга (эмуляция). Перед запуском yellow_tripdata_2016-01.csv на месте:
+### 7. Запуск стриминга (эмуляция):
+Перед запуском проверить, что yellow_tripdata_2016-01.csv на месте
 ```bash
 	python3 stream_trips.py
 ```
