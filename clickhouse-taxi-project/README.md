@@ -52,7 +52,7 @@
 │   ├── clickhouse-server.service		 # Конфигарация сервиса clickhouse-server в Ubuntu
 │   └── superset.service			 # Конфигарация сервиса superset в Ubuntu
 ├──verifycation_data
-│   └── check_clickhouse_objects.sql # SQL-скрипт: минимальная проверка данных в БД
+│   └── check_clickhouse_objects.sql            # SQL-скрипт: минимальная проверка данных в БД
 └── README.md                                 	 # Документация или README
 ```
 
