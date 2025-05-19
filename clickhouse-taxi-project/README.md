@@ -27,7 +27,7 @@
 ├── clickhouse-superset
 │   ├── load_data
 │   │   ├── convert_parquet_to_csv.py		 # Скрипт конвертирующий файл с входными данными .parquet -> .csv
-│   │   ├── generate_drivers.py		 # Генерация таблицы водителей (drivers)
+│   │   ├── generate_drivers.py		  	 # Генерация таблицы водителей (drivers)
 │   │   ├── generate_routes.py			 # Генерация таблицы маршрутов (routes)
 │   │   ├── load_trips.py			 # Загрузка исторических данных поездок в ClickHouse
 │   │   ├── stream_trips.py			 # Имитация стриминга данных в ClickHouse (по 100 записей/сек)
@@ -52,8 +52,8 @@
 │   ├── clickhouse-server.service		 # Конфигарация сервиса clickhouse-server в Ubuntu
 │   └── superset.service			 # Конфигарация сервиса superset в Ubuntu
 ├──verifycation_data
-│   └── check_clickhouse_objects.sql            # SQL-скрипт: минимальная проверка данных в БД
-└── README.md                                 	 # Документация или README
+│   └── check_clickhouse_objects.sql             # SQL-скрипт: минимальная проверка данных в БД
+└── README.md                                    # Документация или README
 ```
 
 ---
